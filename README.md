@@ -13,7 +13,6 @@ Multilocus sequence typing by blast using the schemes from PubMLST.
   * [Required dependencies](#required-dependencies)
   * [Docker](#docker)
   * [Debian/Ubuntu](#debianubuntu)
-  * [HomeBrew/LinuxBrew](#homebrewlinuxbrew)
 * [Usage](#usage)
 * [Input format](#input-format)
 * [Outputs](#outputs)
@@ -70,7 +69,7 @@ mlst_check has the following dependencies:
 
 If you encounter an issue when installing mlst_check please contact your local system administrator. If you encounter a bug please log it [here](https://github.com/sanger-pathogens/mlst_check/issues) or email us at path-help@sanger.ac.uk.
 
-Instructions are given for installing the software via Docker (can be run on all operating systems), for Debian/Ubuntu distributions and HomeBrew/LinuxBrew.
+Instructions are given for installing the software via Docker (can be run on all operating systems) and for Debian/Ubuntu distributions.
 
 ### Docker
 The docker container includes a snapshot of the MLST databases from the day it was built.  To install it:
@@ -102,32 +101,6 @@ cpanm -f Bio::MLST::Check
 ```
 
 Set the directory where you would like to store the MLST databases.
-```
-export MLST_DATABASES=/path/to/where_you_want_to_store_the_databases
-```
-
-Download the latest copy of the databases (run it once per month)
-```
-download_mlst_databases
-```
-To use the software to find the sequence types for all fasta files in your current directory:
-```
-get_sequence_type -s "Clostridium difficile" *.fa
-```
-
-### HomeBrew/LinuxBrew
-If you run OSX, a non-Debian Linux or you do not have root access on your machine, you can use HomeBrew/LinuxBrew to install the dependancies.  First install [Homebrew](http://brew.sh/) (OSX) or [LinuxBrew](http://linuxbrew.sh/) (Linux).
-
-```
-brew tap homebrew/science
-brew install cpanminus blast
-```
-
-Assuming you have setup perl modules to install in your local directory (~/perl5 in this case), install the software and all its Perl dependancies:
-```
-cpanm --local-lib=~/perl5 -f Bio::MLST::Check
-```
-Set a directory where you would like to store the MLST databases.
 ```
 export MLST_DATABASES=/path/to/where_you_want_to_store_the_databases
 ```
